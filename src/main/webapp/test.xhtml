@@ -10,7 +10,20 @@
     </h:head>
     <h:body>
 
-        <h1>#{testView.testString}</h1>
-
+        <h:form id="frm">
+			<p:commandButton value="Update OP" process="@this pnlTest" update="pnlTest" />
+			
+			<h:panelGroup id="pnlTest">
+				<p:commandButton id="btnTest" value="Open Overlay" type="button" />
+				<p:overlayPanel id="opTest" for="btnTest" appendTo="@(body)">
+				    <p:selectOneMenu value="#{testBean.selectedTest}" widgetVar="somTest">
+				        <f:selectItem itemLabel="1" itemValue="1" />
+				    </p:selectOneMenu>
+				</p:overlayPanel>
+			</h:panelGroup>
+			
+			
+			<p:commandButton value="Alert state ofSelectOneMenu" type="button" onclick="alert('Size of somTest#jq = ' + PF('somTest').jq.length + '\nSelected Label = ' + PF('somTest').getSelectedLabel())" />
+		</h:form>
     </h:body>
 </html>

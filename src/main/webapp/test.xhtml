@@ -13,6 +13,17 @@
         <h1>#{testView.testString}</h1>
         
         <h:form>
+        	<b>JSF Standard dropdown (non ajax)</b><br />
+        	<h:selectOneMenu value="#{testView.testString}" hideNoSelectionOption="true">
+        		<f:selectItem itemValue="" itemLabel="-- please select --" noSelectionOption="true" />
+        		<f:selectItem itemValue="t1" itemLabel="Test 1" />
+        		<f:selectItem itemValue="t2" itemLabel="Test 2" />
+        	</h:selectOneMenu>
+        	
+        	<br />
+        	<br />
+        	<br />
+        	
         	<b>JSF Standard dropdown</b><br />
         	<h:selectOneMenu value="#{testView.testString}" hideNoSelectionOption="true">
         		<f:ajax execute="@this" render="@this" />

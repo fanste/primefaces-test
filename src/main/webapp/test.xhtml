@@ -11,6 +11,29 @@
     <h:body>
 
         <h1>#{testView.testString}</h1>
+        
+        <h:form>
+        	<b>JSF Standard dropdown</b><br />
+        	<h:selectOneMenu value="#{testView.testString}" hideNoSelectionOption="true">
+        		<f:ajax execute="@this" render="@this" />
+        		<f:selectItem itemValue="" itemLabel="-- please select --" noSelectionOption="true" />
+        		<f:selectItem itemValue="t1" itemLabel="Test 1" />
+        		<f:selectItem itemValue="t2" itemLabel="Test 2" />
+        	</h:selectOneMenu>
+        	
+        	<br />
+        	<br />
+        	<br />
+        	
+        	<b>PrimeFaces dropdown</b><br />
+        	<p:selectOneMenu value="#{testView.testString}" hideNoSelectionOption="true">
+        		<p:ajax process="@this" update="@this" />
+        	
+        		<f:selectItem itemValue="" itemLabel="-- please select --" noSelectionOption="true" />
+        		<f:selectItem itemValue="t1" itemLabel="Test 1" />
+        		<f:selectItem itemValue="t2" itemLabel="Test 2" />
+        	</p:selectOneMenu>
+        </h:form>
 
     </h:body>
 </html>

@@ -9,8 +9,19 @@
         <title>PrimeFaces Test</title>
     </h:head>
     <h:body>
-
-        <h1>#{testView.testString}</h1>
-
+		<h:form>
+		
+	       	<b>Defect - dynamic menu items (model)</b><br />
+	       	<p:splitButton value="ALL" actionListener="#{testView.doButtonAction}" model="#{testView.model}" />
+	       	
+	       	<br />
+	       	<br />
+	       	
+	       	<b>Working - static menu items</b><br />
+	       	<p:splitButton value="ALL" actionListener="#{testView.doButtonAction}">
+	       		<p:menuitem value="Item 1" actionListener="#{testView.doItemAction}" />
+	       		<p:menuitem value="Item 2" actionListener="#{testView.doItemAction}" />
+	       	</p:splitButton>
+	    </h:form>
     </h:body>
 </html>

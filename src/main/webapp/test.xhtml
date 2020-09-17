@@ -9,8 +9,25 @@
         <title>PrimeFaces Test</title>
     </h:head>
     <h:body>
-
-        <h1>#{testView.testString}</h1>
-
+		<h:form>
+	        <p:dataTable id="dtTest" value="#{testView.valueList}" var="r"
+	        	expandedRow="#{r.label eq 'B'}">
+	        	<p:column>
+	        		<p:rowToggler />
+	        	</p:column>
+	        	<p:column>#{r.label}</p:column>
+	        	<p:rowExpansion>
+	        		<p:selectOneMenu value="#{r.ddValue}">
+	        			<f:selectItem itemValue="#{1}" itemLabel="1" />
+	        			<f:selectItem itemValue="#{2}" itemLabel="2" />
+	        			<f:selectItem itemValue="#{3}" itemLabel="3" />
+	        			<f:selectItem itemValue="#{4}" itemLabel="4" />
+	        		</p:selectOneMenu>
+	        	</p:rowExpansion>
+	        </p:dataTable>
+	        
+	        <p:commandButton value="Process &amp; update table" process="@form" update="dtTest"
+	        	actionListener="#{testView.doPrint}" />
+	    </h:form>
     </h:body>
 </html>

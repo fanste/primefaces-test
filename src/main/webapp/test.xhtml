@@ -3,7 +3,8 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:g="http://xmlns.jcp.org/jsf/composite/components">
 
     <h:head>
         <title>PrimeFaces Test</title>
@@ -13,7 +14,8 @@
 
         <h1>#{testView.string}</h1>
         <h:form id="frmTest">
-            
+            <p:outputLabel for="ccTC:inValue" value="This should have an indicator!" />
+            <g:testComposite id="ccTC" value="#{testView.string}" required="true" />
         </h:form>
 
     </h:body>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:fn="http://xmlns.jcp.org/jsp/jstl/functions"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:composite="http://xmlns.jcp.org/jsf/composite"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+	<composite:interface>
+		<composite:attribute name="value" required="true" />
+		<composite:attribute name="required" />
+
+		<composite:editableValueHolder name="inValue" />
+	</composite:interface>
+
+	<composite:implementation>
+		<div id="#{cc.clientId}">
+			<p:inputText id="inValue" value="#{cc.attrs.value}" required="${cc.attrs.required}" />
+		
+		</div>
+	</composite:implementation>
+</html>

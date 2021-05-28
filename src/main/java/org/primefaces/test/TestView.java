@@ -1,27 +1,32 @@
 package org.primefaces.test;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
-import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
-import lombok.Data;
-
-@Data
 @Named
 @ViewScoped
 public class TestView implements Serializable {
     
-    private String string;
-    private Integer integer;
-    private BigDecimal decimal;
-    private LocalDateTime localDateTime;
-    
-    @PostConstruct  
-    public void init() {
-        string = "Welcome to PrimeFaces!!!";
-    }
+	private static final long serialVersionUID = 1L;
 
+    private List<String> dataList;
+
+    @PostConstruct
+    public void initialize() {
+    	dataList = new ArrayList<>();
+        dataList.add("A");
+        dataList.add("B");
+        dataList.add("C");
+        dataList.add("D");
+        dataList.add("E");
+    }
+    
+    public List<String> getDataList() {
+          return dataList;
+    }
 }

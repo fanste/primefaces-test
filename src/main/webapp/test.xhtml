@@ -11,10 +11,29 @@
     </h:head>
     <h:body>
 
-        <h1>#{testView.string}</h1>
-        <h:form id="frmTest">
-            
-        </h:form>
+        <h:form id="f">
+		    <p:dataTable id="dt" widgetVar="dt" value="#{testView.dataList}" var="d">
+		        <p:column headerText="1" filterBy="#{d}">
+		        	<f:facet name="filter">
+		        		<p:inputText  onchange="PF('dt').filter();" />
+		        	</f:facet>
+		        	
+		        	1: #{d}
+		        </p:column>
+		        
+		        <p:column headerText="2" filterBy="#{d}">
+		        	<f:facet name="filter">
+		        		<p:selectOneMenu  onchange="PF('dt').filter();">
+		        			<f:selectItem itemValue="#{null}" itemLabel="" />
+		        			<f:selectItem itemValue="A" itemLabel="A" />
+		        			<f:selectItem itemValue="B" itemLabel="B" />
+		        		</p:selectOneMenu>
+		        	</f:facet>
+		        	
+		        	2: #{d}
+		        </p:column>
+		    </p:dataTable>
+		</h:form>
 
     </h:body>
 </html>
